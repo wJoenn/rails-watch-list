@@ -1,0 +1,16 @@
+<div id="navbar">
+  <%= link_to lists_path do %>
+    <%= image_tag "logo-white", size: "110x75" %>
+  <% end %>
+
+  <div data-controller="list-form">
+    <button class="btn-default btn-main" data-action="click->list-form#showForm">New list</button>
+
+    <div class="d-none overlay"
+         data-list-form-target="form"
+         data-action="click->list-form#hideForm"
+         data-show-list-form="<%= @show_list_form %>">
+      <%= render "components/list_form" %>
+    </div>
+  </div>
+</div>

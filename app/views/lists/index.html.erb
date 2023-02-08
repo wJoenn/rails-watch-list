@@ -1,0 +1,19 @@
+<div id="lists-index">
+  <div class="banner">
+    <h1>Save any kind of movies</h1>
+  </div>
+
+  <div class="container w-1200">
+    <h2>My Lists</h2>
+    <div class="lists">
+      <% @lists.each do |l| %>
+        <%= link_to list_path(l), class: "text-inherit" do %>
+          <div class="list-card"
+              style="<%= "background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(#{l.cover_url})" unless l.cover_url == "" %>">
+            <h3><%= l.name.upcase %></h3>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

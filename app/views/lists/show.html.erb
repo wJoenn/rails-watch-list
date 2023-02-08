@@ -1,0 +1,49 @@
+<div id="lists-show">
+  <div class="banner"
+       style="<%= "background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(#{@list.cover_url})" unless @list.cover_url == "" %>">
+    <h1><%= @list.name %></h1>
+  </div>
+
+  <div class="container w-1200">
+    <div data-controller="bookmark-form">
+      <button data-action="click->bookmark-form#toggleForm"
+              data-bookmark-form-target="button">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+
+      <div id="bookmark-form" class="h-0" data-bookmark-form-target="form" data-show-bookmark-form="<%= @show_bookmark_form %>">
+        <%= form_with model: [@list, @bookmark] do |f| %>
+          <%= f.hidden_field :list_id %>
+          <%= f.collection_select :movie_id, Movie.order(:title), :id, :title
+                                  #, input_html: { data: { controller: "tom-select" } }
+                                  %>
+          <%= f.text_field :comment, placeholder: "add your comment here" %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="movies">
+      <% @list.bookmarks.each do |b| %>
+        <div class="movie-card">
+          <%= image_tag b.movie.poster_url %>
+          <div class="content">
+            <div class="title">
+              <strong><%= b.movie.title %></strong>
+              <span>&bull; <%= b.movie.rating %> </span>
+              <i class="fa-solid fa-star text-smaller"></i>
+            </div>
+
+            <p class="text-smaller"><%= b.movie.overview %></p>
+          </div>
+          <div class="footer">
+            <span>“ <%= b.comment %></span>
+            <%= link_to "delete", bookmark_path(b), data: { turbo_method: :delete }, class: "text-inherit text-red" %>
+           </div>
+        </div>
+      <% end %>
+    </div>
+
+    <%= render "components/reviews" %>
+  </div>
+</div>

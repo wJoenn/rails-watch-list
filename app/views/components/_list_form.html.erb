@@ -1,0 +1,17 @@
+<div id="list-form">
+  <h1>NEW LIST</h1>
+  <i class="fa-solid fa-xmark top-right-corner" data-action="click->list-form#hideForm"></i>
+  <%= form_with model: List.new do |f| %>
+    <div class="form-field">
+      <p>ENTER A NAME FOR YOUR LIST <span class="text-red">( REQUIRED )</span></p>
+      <%= f.text_field :name, placeholder: "name" %>
+    </div>
+
+    <div class="form-field">
+      <p>UPLOAD A PICTURE FOR THE LIST COVER IMAGE</p>
+      <%= f.text_field :cover_url, placeholder: "banner image url" %>
+    </div>
+
+    <%= f.submit class: "d-none" %>
+  <% end %>
+</div>
