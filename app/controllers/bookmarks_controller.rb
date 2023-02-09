@@ -1,6 +1,7 @@
 class BookmarksController < ApplicationController
   def create
     bookmark = Bookmark.new(bookmark_params)
+    bookmark.list = List.find(params[:list_id])
     if bookmark.save
       redirect_to list_path(bookmark.list)
     else
@@ -11,13 +12,13 @@ class BookmarksController < ApplicationController
   def destroy
     bookmark = Bookmark.find(params['id'])
     list = bookmark.list
-    redirect_to list_path(list)
     bookmark.destroy
+    redirect_to list_path(list)
   end
 
   private
 
   def bookmark_params
-    params.require(:bookmark).permit(:list_id, :movie_id, :comment)
+    params.require(:bookmark).permit(:movie_id, :comment)
   end
 end

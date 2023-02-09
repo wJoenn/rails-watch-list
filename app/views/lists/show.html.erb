@@ -13,7 +13,6 @@
 
       <div id="bookmark-form" class="h-0" data-bookmark-form-target="form" data-show-bookmark-form="<%= @show_bookmark_form %>">
         <%= form_with model: [@list, @bookmark] do |f| %>
-          <%= f.hidden_field :list_id %>
           <%= f.collection_select :movie_id, Movie.order(:title), :id, :title %>
           <%= f.text_field :comment, placeholder: "add your comment here" %>
           <%= f.submit %>

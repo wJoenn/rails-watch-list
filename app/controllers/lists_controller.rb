@@ -6,9 +6,15 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
-    @bookmark = Bookmark.new(list_id: @list.id)
+
+    # Bookmark form
+    @bookmark = Bookmark.new(list: @list)
     @show_bookmark_form = params[:bookmark_form]
+
+    # Review form
     @review = Review.new
+
+    # Review index
     @reviews = @list.reviews
     @to_time = Time.now
   end
