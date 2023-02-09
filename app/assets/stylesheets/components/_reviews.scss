@@ -57,6 +57,11 @@
     &:last-child {
       border: none;
     }
+
+    span {
+      font-size: 0.8rem;
+      color: rgba(211, 211, 211, 0.5);
+    }
   }
 
   p {

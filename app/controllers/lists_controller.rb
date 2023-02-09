@@ -10,6 +10,7 @@ class ListsController < ApplicationController
     @show_bookmark_form = params[:bookmark_form]
     @review = Review.new
     @reviews = @list.reviews
+    @to_time = Time.now
   end
 
   def create

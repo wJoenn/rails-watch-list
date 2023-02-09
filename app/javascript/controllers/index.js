@@ -13,4 +13,5 @@ application.register("list-form", ListFormController)
 import TomSelectController from "./tom_select_controller"
 application.register("tom-select", TomSelectController)
 
-require("./aos_controller")
+import AosController from "./aos_controller"
+application.register("aos", AosController)
