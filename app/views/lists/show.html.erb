@@ -21,23 +21,8 @@
     </div>
 
     <div class="movies">
-      <% @list.bookmarks.each do |b| %>
-        <div class="movie-card">
-          <%= image_tag b.movie.poster_url %>
-          <div class="content">
-            <div class="title">
-              <strong><%= b.movie.title %></strong>
-              <span>&bull; <%= b.movie.rating.round(1) %></span>
-              <i class="fa-solid fa-star text-smaller"></i>
-            </div>
-
-            <p class="text-smaller"><%= b.movie.overview %></p>
-          </div>
-          <div class="footer">
-            <span>“ <%= b.comment %></span>
-            <%= link_to "delete", bookmark_path(b), data: { turbo_method: :delete }, class: "text-inherit text-red" %>
-           </div>
-        </div>
+      <% @list.bookmarks.each do |bookmark| %>
+        <%= render "components/movie_card", bookmark: bookmark %>
       <% end %>
     </div>
 

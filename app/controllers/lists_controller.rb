@@ -22,9 +22,9 @@ class ListsController < ApplicationController
   def create
     list = List.new(list_params)
     if list.save
-      redirect_to lists_path
+      redirect_to root_path
     else
-      redirect_to lists_path(list_form: 'true')
+      redirect_to root_path(list_form: 'true')
     end
   end
 
