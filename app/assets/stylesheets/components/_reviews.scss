@@ -1,16 +1,24 @@
 #reviews {
+  border-top: 1px solid rgba(211, 211, 211, 0.5);
   display: flex;
   gap: 30px;
   justify-content: space-between;
-  border-top: 1px solid rgba(211, 211, 211, 0.5);
-  padding-top: 50px;
   margin-top: 50px;
+  padding-top: 50px;
 
-  #review-form {
-    padding: 15px;
-    background-color: $secondary-dark-grey;
-    flex: 1 1 0px;
-    height: max-content;
+  input, textarea {
+    background-image: linear-gradient(to right, rgb(68, 68, 71), rgb(42, 42, 51));
+    border: none;
+    border-radius: 3px;
+    box-shadow: inset 0 0 10px rgba(15, 15, 15, 0), 0 0 10px rgba(15, 15, 15, 0.3);
+    color: inherit;
+    padding: 10px 20px;
+    transition: box-shadow 0.3s ease;
+
+    &:focus {
+      box-shadow: inset 0 0 10px rgba(15, 15, 15, 0.7), 0 0 10px rgba(15, 15, 15, 0.3);
+      outline: none;
+    }
   }
 
   form {
@@ -18,20 +26,10 @@
     flex-direction: column;
   }
 
-  input, textarea {
-    padding: 10px 20px;
-    background-image: linear-gradient(to right, rgb(68, 68, 71), rgb(42, 42, 51));
-    border: none;
-    border-radius: 3px;
-    box-shadow: inset 0 0 10px rgba(15, 15, 15, 0), 0 0 10px rgba(15, 15, 15, 0.3);
-    transition: box-shadow 0.3s ease;
-    color: inherit;
-
-    &:focus {
-      outline: none;
-      box-shadow: inset 0 0 10px rgba(15, 15, 15, 0.7), 0 0 10px rgba(15, 15, 15, 0.3);
-    }
+  p {
+    margin-bottom: 5px;
   }
+
 
   .field {
     display: flex;
@@ -39,36 +37,39 @@
     margin: 15px 0;
 
     p {
-      font-size: 0.8rem;
       color: rgba(211, 211, 211, 0.5);
+      font-size: 0.8rem;
     }
   }
 
-  #review-list {
-    flex: 1 1 0px;
-  }
-
   .review {
-    padding-bottom: 10px;
-    margin-bottom: 10px;
     border-bottom: 1px solid rgba(211, 211, 211, 0.3);
     font-weight: 500;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
 
     &:last-child {
       border: none;
     }
 
     span {
-      font-size: 0.8rem;
       color: rgba(211, 211, 211, 0.5);
+      font-size: 0.8rem;
     }
-  }
-
-  p {
-    margin-bottom: 5px;
   }
 
   .stars {
     color: gold;
+  }
+
+  #review-form {
+    background-color: $secondary-dark-grey;
+    flex: 1 1 0px;
+    height: max-content;
+    padding: 15px;
+  }
+
+  #review-list {
+    flex: 1 1 0px;
   }
 }

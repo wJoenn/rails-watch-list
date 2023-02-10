@@ -28,13 +28,6 @@ body {
   padding: 0;
 }
 
-.w-1200 {
-  min-width: none;
-  width:  1200px;
-  max-width: none;
-
-}
-
 .max-content {
   width: max-content;
 }
@@ -58,4 +51,10 @@ body {
 
 .text-smaller {
   font-size: 0.8rem;
+}
+
+.w-1200 {
+  min-width: none;
+  max-width: none;
+  width:  1200px;
 }

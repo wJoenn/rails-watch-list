@@ -10,7 +10,7 @@
         <%= link_to list_path(l), class: "text-inherit",
           data: { aos: "fade-up", "aos-delay": "300", "aos-duration": "1000" } do %>
           <div class="list-card"
-              style="<%= "background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(#{l.cover_url})" unless l.cover_url == "" %>">
+              style="<%= "background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(#{cl_image_path l.photo.key})" if l.photo.attached? %>">
             <h3><%= l.name.upcase %></h3>
           </div>
         <% end %>

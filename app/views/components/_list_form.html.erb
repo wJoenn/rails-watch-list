@@ -9,7 +9,7 @@
 
     <div class="form-field">
       <p>UPLOAD A PICTURE FOR THE LIST COVER IMAGE</p>
-      <%= f.text_field :cover_url, placeholder: "banner image url" %>
+      <%= f.file_field :photo, class: "file" %>
     </div>
 
     <%= f.submit class: "d-none" %>

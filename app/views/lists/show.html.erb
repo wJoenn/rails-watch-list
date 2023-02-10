@@ -1,6 +1,6 @@
 <div id="lists-show">
   <div class="banner"
-       style="<%= "background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(#{@list.cover_url})" unless @list.cover_url == "" %>">
+       style="<%= "background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(#{cl_image_path @list.photo.key})" if @list.photo.attached? %>">
     <h1><%= @list.name %></h1>
   </div>
 

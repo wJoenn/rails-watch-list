@@ -1,40 +1,72 @@
 .overlay {
+  align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 10;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
   position: fixed;
   top: 0;
-  left: 0;
   width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  z-index: 10;
 }
 
 #list-form {
-  width: 700px;
+  background-image: linear-gradient(135deg, rgb(68, 68, 71), rgb(42, 42, 51));
+  border-radius: 3px;
   display: flex;
   flex-direction: column;
   padding: 30px;
-  background-image: linear-gradient(135deg, rgb(68, 68, 71), rgb(42, 42, 51));
-  border-radius: 3px;
   position: relative;
+  width: 700px;
 
-  .top-right-corner {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    color: rgba(211, 211, 211, 0.5);
+  input {
+    background-image: linear-gradient(to right, rgb(68, 68, 71), rgb(42, 42, 51));
+    border: none;
+    border-radius: 3px;
+    box-shadow: inset 0 0 10px rgba(15, 15, 15, 0), 0 0 10px rgba(15, 15, 15, 0.3);
+    color: inherit;
+    padding: 10px 20px;
+    transition: box-shadow 0.3s ease;
+    width: 100%;
 
-    &:hover {
-      color: lightgrey;
+    &.file {
+      padding: 0 20px;
+    }
+
+    &:focus {
+      box-shadow: inset 0 0 10px rgba(15, 15, 15, 0.7), 0 0 10px rgba(15, 15, 15, 0.3);
+      outline: none;
+    }
+
+    &::file-selector-button {
+      background-color: $secondary-dark-grey;
+      border: none;
+      border-right: 1px solid rgba(211, 211, 211, 0.2);
+      border-radius: 3px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      color: snow;
+      cursor: pointer;
+      margin-left: -20px;
+      padding: 10px 0.75rem;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 
   form {
     display: flex;
     flex-direction: column;
+  }
+
+  p {
+    color: rgba(211, 211, 211, 0.5);
+    font-size: 0.8rem;
+    margin-bottom: 5px;
   }
 
   .form-field {
@@ -45,25 +77,15 @@
     }
   }
 
-  p {
-    margin-bottom: 5px;
-    font-size: 0.8rem;
+  .top-right-corner {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
     color: rgba(211, 211, 211, 0.5);
-  }
 
-  input {
-    width: 100%;
-    padding: 10px 20px;
-    background-image: linear-gradient(to right, rgb(68, 68, 71), rgb(42, 42, 51));
-    border: none;
-    border-radius: 3px;
-    box-shadow: inset 0 0 10px rgba(15, 15, 15, 0), 0 0 10px rgba(15, 15, 15, 0.3);
-    transition: box-shadow 0.3s ease;
-    color: inherit;
-
-    &:focus {
-      outline: none;
-      box-shadow: inset 0 0 10px rgba(15, 15, 15, 0.7), 0 0 10px rgba(15, 15, 15, 0.3);
+    &:hover {
+      color: lightgrey;
     }
   }
 }
