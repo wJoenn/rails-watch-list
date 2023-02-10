@@ -4,8 +4,12 @@
   background-position: center;
   background-size: cover;
   display: flex;
-  height: 500px;
+  height: calc(100vh - 80px);
   justify-content: center;
   margin-bottom: 50px;
   width: 100%;
+
+  @media screen and (min-width: $small) {
+    height: 500px;
+  }
 }

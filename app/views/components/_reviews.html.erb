@@ -1,12 +1,14 @@
 <div id="reviews" data-aos="fade-up" data-aos-duration="1000">
   <div id="review-list">
     <h3>Reviews</h3>
-    <% @reviews.each do |r| %>
-      <div class="review" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-        <p class="stars"><%= "★" * r.rating %> <span><%= distance_of_time_in_words r.created_at, @to_time %> ago</span></p>
-        <p><%= r.comment %></p>
-      </div>
-    <% end %>
+    <div class="reviews">
+      <% @reviews.each do |r| %>
+        <div class="review" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+          <p class="stars"><%= "★" * r.rating %> <span><%= distance_of_time_in_words r.created_at, @to_time %> ago</span></p>
+          <p><%= r.comment %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
   <div id="review-form">
     <h5>Add your review</h5>

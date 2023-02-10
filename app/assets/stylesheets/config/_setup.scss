@@ -1,3 +1,6 @@
+$small: 576px;
+$large: 996px;
+
 * {
   margin: 0;
   padding: 0;
@@ -24,12 +27,15 @@ body {
 
 .container {
   display: block;
+  min-width: none;
   margin: 0 auto;
+  max-width: 80%;
   padding: 0;
+  width:  1200px;
 }
 
 .max-content {
-  width: max-content;
+  width: max-content !important;
 }
 
 .text-inherit {
@@ -53,8 +59,7 @@ body {
   font-size: 0.8rem;
 }
 
-.w-1200 {
-  min-width: none;
-  max-width: none;
-  width:  1200px;
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
 }
