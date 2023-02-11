@@ -125,6 +125,7 @@
 
     .form-content {
       display: grid;
+      flex-grow: 1;
       gap: 20px;
       grid-template-columns: 1fr;
 

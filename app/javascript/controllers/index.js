@@ -4,14 +4,14 @@
 
 import { application } from "./application"
 
+import AosController from "./aos_controller"
+application.register("aos", AosController)
+
 import BookmarkFormController from "./bookmark_form_controller"
 application.register("bookmark-form", BookmarkFormController)
 
 import ListFormController from "./list_form_controller"
 application.register("list-form", ListFormController)
 
-import TomSelectController from "./tom_select_controller"
-application.register("tom-select", TomSelectController)
-
-import AosController from "./aos_controller"
-application.register("aos", AosController)
+import SlimController from "./slim_controller"
+application.register("slim", SlimController)

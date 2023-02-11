@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
+// Connects to data-controller="bookmark-form"
 export default class extends Controller {
   connect() {
     if (this.formTarget.dataset.showBookmarkForm === "true") this.toggleForm()

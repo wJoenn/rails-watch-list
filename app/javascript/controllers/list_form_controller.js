@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
+// Connects to data-controller="list-form"
 export default class extends Controller {
   connect() {
     if (this.formTarget.dataset.showListForm === "true") this.formTarget.classList.remove("d-none")

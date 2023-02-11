@@ -4,7 +4,7 @@
     <h1><%= @list.name %></h1>
   </div>
 
-  <div class="container w-1200">
+  <div class="container">
     <div data-controller="bookmark-form">
       <button data-action="click->bookmark-form#toggleForm"
               data-bookmark-form-target="button">
@@ -14,7 +14,7 @@
       <div id="bookmark-form" class="h-0" data-bookmark-form-target="form" data-show-bookmark-form="<%= @show_bookmark_form %>">
         <%= form_with model: [@list, @bookmark] do |f| %>
           <div class="form-content">
-            <%= f.collection_select :movie_id, Movie.order(:title), :id, :title %>
+            <%= f.collection_select :movie_id, Movie.order(:title), :id, :title, { include_blank: "- Select a movie -" }, { data: { controller: "slim" } }%>
             <%= f.text_field :comment, placeholder: "add your comment here" %>
           </div>
           <%= f.submit class: "btn-default btn-main max-content" %>
