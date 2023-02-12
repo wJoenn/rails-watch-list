@@ -7,11 +7,18 @@ export default class extends Controller {
       select: this.element
     })
 
+    this.#update()
+
+    const observer = new MutationObserver(this.#update)
+    observer.observe(this.element.nextSibling, { attributes: true })
+  }
+
+  #update() {
     const xpath = "//div[text()='- Select a movie -']";
-    const matchingElement = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-    console.log("hi")
-    // matchingElement.style.color = "red"
-    console.log(matchingElement)
+    const query = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null)
+    for (let i = 0, length = query.snapshotLength; i < length; ++i) {
+      query.snapshotItem(i).style.color = "rgba(211, 211, 211, 0.5)"
+    }
   }
 }
 
